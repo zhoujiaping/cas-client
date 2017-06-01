@@ -1,0 +1,21 @@
+配置时，需要理解原理。现在列举一些比较重要，而网上没有详细介绍的点。
+1、登录地址
+http://cas-server:8080/cas/login?service=http://app1-host:8082/app1/shiro-cas
+service参数，作用作为cas-server区分service的标识，也作为登录后的回调接口，还作为注销后的回调接口。
+作为登录后的回调时，以get方法发送请求。
+作为注销后的回调时，以post方法发送请求。
+2、注销原理
+cas-server收到注销请求，会遍历所有的serivce，逐个发送注销请求（post http://app1-host:8082/app1/shiro-cas）。
+cas客户端，即应用端，有一个map以ST作为key，session作为value。
+另外有一个map以cookie作为key，以ST作为value。（两个map保存在sessionMappingStorage对象）
+容器又以cookie作为key，session作为value保存。
+SingleSignOutHttpSessionListener就是监听session，destroy时，将两个map做相应的清除处理。
+但是注意：web.xml中配置的SingleSignOutHttpSessionListener以及SingleSignOutFilter，使用的都是容器自带的session管理器。
+如果application-shiro中的sessionManager配置的不是容器自带的session管理器，会导致前面的监听器和过滤器处理的session和shiro的session不是一个session。
+单点注销的过滤器要放在shiro过滤器之前。
+3、各组件作用
+casFilter的作用，是在用户在cas-server认证成功后，将用户登录到应用的。即subject.login(token);
+SingleSignOutFilter的作用，是用户在cas-server注销后，将用户从应用注销的。即subject.logout();
+LogoutFilter的作用，是将用户从当前应用注销，并发送请求从cas-server注销。
+AuthcFilter（FormAuthenticationFilter）的作用，就是判断用户是否登录，有登录就放过，没登录就重定向到登录页面。
+CasRealm的作用，用于获取认证及授权信息。

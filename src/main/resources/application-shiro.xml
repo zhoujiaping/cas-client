@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+						http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+						 http://www.springframework.org/schema/websocket  http://www.springframework.org/schema/websocket/spring-websocket.xsd
+	">
+	<!-- shiro生命周期执行 -->
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+	<!-- spring提供的基于url的权限过滤 -->
+	<bean id="shiroSecurityFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<property name="securityManager" ref="securityManager" />
+		<property name="loginUrl">
+			<value>${shiro.loginUrl}</value>
+		</property>
+		<property name="successUrl" value="/" />
+		<property name="unauthorizedUrl" value="/unauthorized.jsp" />
+		<property name="filterChainDefinitions">
+			<value>
+				/shiro-cas = casFilter
+				/logout = logoutFilter
+				/login.html = anon
+				<!-- /views/**= authc,roles[admin] -->
+				/users= authcFilter,perms[user:create]
+				/** = authcFilter
+			</value>
+		</property>
+		<property name="filters">
+			<map>
+				<!-- 添加casFilter到shiroFilter整合 -->
+				<entry key="casFilter" value-ref="casFilter" />
+				<entry key="logoutFilter" value-ref="logoutFilter" />
+				<entry key="authcFilter" value-ref="authcFilter" />
+			</map>
+		</property>
+	</bean>
+
+	<!-- shiro的核心之一 安全管理器 -->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<!-- <property name="cacheManager" ref="redisCacheManager" /> -->
+		<!--DefaultWebSecurityManager使用的默认实现，用于Web环境，其直接使用Servlet容器的会话；
+		由于web.xml中配置的session监听器是监听servlet容器的会话，所以这里也要用servelt容器的会话。 
+		否则就需要自己实现SingleSignOutHttpSessionListener的功能了。
+		<property name="sessionManager" ref="defaultWebSessionManager" /> -->
+		<property name="realm" ref="myRealm" />
+		<property name="subjectFactory" ref="casSubjectFactory" />
+	</bean>
+	<!-- 自定义域，用于认证和授权 -->
+	<bean id="myRealm" class="cn.howso.component.MyRealm">
+		<property name="casServerUrlPrefix" value="${shiro.casServerUrlPrefix}" />
+		<!-- 客户端的回调地址设置 -->
+		<property name="casService" value="${shiro.casService}" />
+	</bean>
+	<!-- CasFilter为自定义的单点登录Fileter -->
+	<bean id="casFilter" class="cn.howso.filter.MyCasFilter">
+		<property name="failureUrl" value="/failure.html" />
+		<!-- <property name="successUrl" value="/success.html"/> -->
+		<property name="loginUrl">
+			<value>${shiro.loginUrl}</value>
+		</property>
+	</bean>
+	<bean id="authcFilter" class="cn.howso.filter.AuthcFilter">
+	</bean>
+	<bean id="casSubjectFactory" class="org.apache.shiro.cas.CasSubjectFactory" />
+	<!-- 退出 -->
+	<bean name="logoutFilter" class="cn.howso.filter.MyLogoutFilter">
+		<property name="redirectUrl">
+			<value>${shiro.redirectUrl}</value>
+		</property>
+	</bean>
+
+</beans>
