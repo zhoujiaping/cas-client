@@ -13,6 +13,7 @@ public class TestController {
     @RequestMapping("test")
     @ResponseBody
     public Object test(HttpServletRequest req){
+    	//验证session共享
         Object obj = SecurityUtils.getSubject().getSession().getAttribute("my-key");
         System.out.println(obj);
         SecurityUtils.getSubject().getSession().setAttribute("my-key", req.getContextPath());

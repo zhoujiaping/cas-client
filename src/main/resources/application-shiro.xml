@@ -42,17 +42,17 @@
 		<!-- <property name="cacheManager" ref="redisCacheManager" /> -->
 		<!--DefaultWebSecurityManager使用的默认实现，用于Web环境，其直接使用Servlet容器的会话； 由于web.xml中配置的session监听器是监听servlet容器的会话，所以这里也要用servelt容器的会话。 
 			否则就需要自己实现SingleSignOutHttpSessionListener的功能了。 -->
-		<!-- <property name="sessionManager" ref="defaultWebSessionManager" /> -->
+		<property name="sessionManager" ref="defaultWebSessionManager" />
 		<property name="realm" ref="myRealm" />
 		<property name="subjectFactory" ref="casSubjectFactory" />
 	</bean>
 	 <bean id="defaultWebSessionManager"
 		class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
-		<!-- <property name="globalSessionTimeout" value="1800000" />
+		<property name="globalSessionTimeout" value="1800000" />
 		<property name="deleteInvalidSessions" value="true" />
 		<property name="sessionDAO" ref="mySessionDao" />
-		<property name="sessionIdCookie" ref="wapsession" /> -->
-	</bean><!--
+		<property name="sessionIdCookie" ref="wapsession" />
+	</bean>
 	<bean id="wapsession" class="org.apache.shiro.web.servlet.SimpleCookie">
 		<property name="name" value="websessionid" />
 		<property name="path" value="/"></property>
@@ -71,7 +71,7 @@
 		<constructor-arg name="password" value="${redis_password}"></constructor-arg>
 		<constructor-arg name="database" value="0"></constructor-arg>
 	</bean>
-	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig" /> -->
+	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig" />
 
 	<!-- 自定义域，用于认证和授权 -->
 	<bean id="myRealm" class="cn.howso.component.MyRealm">

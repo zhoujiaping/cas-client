@@ -1,4 +1,4 @@
-×¼±¸»·¾³
+å‡†å¤‡ç¯å¢ƒ
 	windows7
 	jdk8
 	maven3.3
@@ -6,61 +6,61 @@
 	cas-client-3.1.12-release
 	apache-tomcat-7.0.65
 
-×ÊÔ´
-¡¡	¹ÙÍø£ºhttp://jasig.github.io/cas/
-¡¡	Cas ServerÏÂÔØ£ºhttp://developer.jasig.org/cas/
-¡¡	Cas ClientÏÂÔØ£ºhttp://developer.jasig.org/cas-clients/
-Ò»¡¢ÅäÖÃÖ¤Êé
-1Éú³ÉÖ¤Êé
-ÏÖÔÚdÅÌ´´½¨ÎÄ¼ş¼Ğcas-keys
+èµ„æº
+ã€€	å®˜ç½‘ï¼šhttp://jasig.github.io/cas/
+ã€€	Cas Serverä¸‹è½½ï¼šhttp://developer.jasig.org/cas/
+ã€€	Cas Clientä¸‹è½½ï¼šhttp://developer.jasig.org/cas-clients/
+ä¸€ã€é…ç½®è¯ä¹¦
+1ç”Ÿæˆè¯ä¹¦
+ç°åœ¨dç›˜åˆ›å»ºæ–‡ä»¶å¤¹cas-keys
 C:\Users\Administrator>keytool -genkey -alias cas-server -keyalg RSA -keystore d:/cas-keys/cas-server.crt
-ÊäÈëÃÜÔ¿¿â¿ÚÁî:123456
-ÔÙ´ÎÊäÈëĞÂ¿ÚÁî:123456
-ÄúµÄÃû×ÖÓëĞÕÊÏÊÇÊ²Ã´?
-  [Unknown]:  cas-server             //ÕâÀïÌîĞ´ÓòÃû
-ÄúµÄ×éÖ¯µ¥Î»Ãû³ÆÊÇÊ²Ã´?
+è¾“å…¥å¯†é’¥åº“å£ä»¤:123456
+å†æ¬¡è¾“å…¥æ–°å£ä»¤:123456
+æ‚¨çš„åå­—ä¸å§“æ°æ˜¯ä»€ä¹ˆ?
+  [Unknown]:  cas-server             //è¿™é‡Œå¡«å†™åŸŸå
+æ‚¨çš„ç»„ç»‡å•ä½åç§°æ˜¯ä»€ä¹ˆ?
   [Unknown]:  bigdata
-ÄúµÄ×éÖ¯Ãû³ÆÊÇÊ²Ã´?
+æ‚¨çš„ç»„ç»‡åç§°æ˜¯ä»€ä¹ˆ?
   [Unknown]:  howso
-ÄúËùÔÚµÄ³ÇÊĞ»òÇøÓòÃû³ÆÊÇÊ²Ã´?
+æ‚¨æ‰€åœ¨çš„åŸå¸‚æˆ–åŒºåŸŸåç§°æ˜¯ä»€ä¹ˆ?
   [Unknown]:  gulou
-ÄúËùÔÚµÄÊ¡/ÊĞ/×ÔÖÎÇøÃû³ÆÊÇÊ²Ã´?
+æ‚¨æ‰€åœ¨çš„çœ/å¸‚/è‡ªæ²»åŒºåç§°æ˜¯ä»€ä¹ˆ?
   [Unknown]:  nanjing
-¸Ãµ¥Î»µÄË«×ÖÄ¸¹ú¼Ò/µØÇø´úÂëÊÇÊ²Ã´?
+è¯¥å•ä½çš„åŒå­—æ¯å›½å®¶/åœ°åŒºä»£ç æ˜¯ä»€ä¹ˆ?
   [Unknown]:  ZH
-CN=localhost, OU=bigdata, O=howso, L=gulou, ST=nanjing, C=ZHÊÇ·ñÕıÈ·?
-  [·ñ]:  y
+CN=localhost, OU=bigdata, O=howso, L=gulou, ST=nanjing, C=ZHæ˜¯å¦æ­£ç¡®?
+  [å¦]:  y
 
-ÊäÈë <localhost> µÄÃÜÔ¿¿ÚÁî
-        (Èç¹ûºÍÃÜÔ¿¿â¿ÚÁîÏàÍ¬, °´»Ø³µ):
-2µ¼³öÖ¤Êé
+è¾“å…¥ <localhost> çš„å¯†é’¥å£ä»¤
+        (å¦‚æœå’Œå¯†é’¥åº“å£ä»¤ç›¸åŒ, æŒ‰å›è½¦):
+2å¯¼å‡ºè¯ä¹¦
 keytool -export -file d:/cas-keys/cas-server -alias cas-server
 -keystore d:/cas-keys/cas-server.crt
-ÊäÈëÃÜÔ¿¿â¿ÚÁî:
+è¾“å…¥å¯†é’¥åº“å£ä»¤:
 
-3µ¼ÈëÖ¤Êé
+3å¯¼å…¥è¯ä¹¦
 keytool -import -keystore "C:\Program Files\Java\jdk1.8.0_73\jre/lib/security/cacerts" -file d:/cas-keys/cas-server -alias cas-server
 
-¶ş¡¢ÅäÖÃcas·şÎñÆ÷
-1¡¢´Óhttp://developer.jasig.org/cas/ÉÏÏÂÔØcas·şÎñÆ÷¶Ëcas-server-4.0.0-release.zip£¬ÔÚmodulesÄ¿Â¼ÏÂÕÒµ½cas-server-webapp-4.0.0.war£¬½«Æä¸´ÖÆµ½D:\dev\tomcat7-cas-test\webappsÏÂ£¬²¢½«Ãû³Æ¸ÄÎªcas.war
-2¡¢ĞŞ¸Ä%TOMCAT_HOME%\conf\server.xmlÎÄ¼ş£¬È¥µô´ËÎÄ¼ş83µ½93ĞĞÖ®¼äµÄ×¢ÊÍ£¬ĞŞ¸ÄÎª£º
-<Connector SSLEnabled="true" clientAuth="false" keystoreFile="d:/cas-keys/cas-server.crt" <!¡ªÉú³ÉÖ¤ÊéÊ±µÄÂ·¾¶£¬Ö¤ÊéÃû-->
-keystorePass="123456" <!¡ªÖ¤ÊéÃÜÂë-->
+äºŒã€é…ç½®casæœåŠ¡å™¨
+1ã€ä»http://developer.jasig.org/cas/ä¸Šä¸‹è½½casæœåŠ¡å™¨ç«¯cas-server-4.0.0-release.zipï¼Œåœ¨modulesç›®å½•ä¸‹æ‰¾åˆ°cas-server-webapp-4.0.0.warï¼Œå°†å…¶å¤åˆ¶åˆ°D:\dev\tomcat7-cas-test\webappsä¸‹ï¼Œå¹¶å°†åç§°æ”¹ä¸ºcas.war
+2ã€ä¿®æ”¹%TOMCAT_HOME%\conf\server.xmlæ–‡ä»¶ï¼Œå»æ‰æ­¤æ–‡ä»¶83åˆ°93è¡Œä¹‹é—´çš„æ³¨é‡Šï¼Œä¿®æ”¹ä¸ºï¼š
+<Connector SSLEnabled="true" clientAuth="false" keystoreFile="d:/cas-keys/cas-server.crt" <!â€”ç”Ÿæˆè¯ä¹¦æ—¶çš„è·¯å¾„ï¼Œè¯ä¹¦å-->
+keystorePass="123456" <!â€”è¯ä¹¦å¯†ç -->
 maxThreads="150" port="8443" protocol="org.apache.coyote.http11.Http11Protocol" scheme="https" secure="true" sslProtocol="TLS"/>
-3¡¢²âÊÔ£ºhttps://localhost:8443/cas
-Èç¹ûÌøµ½https://localhost:8443/cas/loginÒ³Ãæ£¬Ôò¹ı³ÌÕı³£¡£
-ÓÃ»§ÃûºÍÃÜÂë
+3ã€æµ‹è¯•ï¼šhttps://localhost:8443/cas
+å¦‚æœè·³åˆ°https://localhost:8443/cas/loginé¡µé¢ï¼Œåˆ™è¿‡ç¨‹æ­£å¸¸ã€‚
+ç”¨æˆ·åå’Œå¯†ç 
 casuser
 Mellon
-https://localhost:8443/cas/logoutÍË³öµÇÂ¼
-Èı¡¢ÅäÖÃcas¿Í»§¶Ë
-1. ´Óhttp://developer.jasig.org/cas-clients/ÉÏÏÂÔØcas-client-3.1.12-release.zip£¬ÔÚmodulesÄ¿Â¼ÏÂÕÒµ½cas-client-core-3.1.12.jar¡¢
-commons-collections-3.2.jar¡¢commons-logging-1.1.jar¸´ÖÆµ½ÏîÄ¿D:\dev\tomcat7\libÏÂ
-£¨ÅäÖÃtomcat7µÄ¶Ë¿ÚTomcat admin portÎª8006£¬HTTP/1.1Îª8081£¬SSLÎª8444£¬AJP/1.3Îª8010£©
-2. Ìí¼ÓÓ³ÉäÓòÃû£¬ÔÚC:\Windows\System32\drivers\etc\hostsÎÄ¼şÖĞÌí¼Ó
+https://localhost:8443/cas/logouté€€å‡ºç™»å½•
+ä¸‰ã€é…ç½®caså®¢æˆ·ç«¯
+1. ä»http://developer.jasig.org/cas-clients/ä¸Šä¸‹è½½cas-client-3.1.12-release.zipï¼Œåœ¨modulesç›®å½•ä¸‹æ‰¾åˆ°cas-client-core-3.1.12.jarã€
+commons-collections-3.2.jarã€commons-logging-1.1.jarå¤åˆ¶åˆ°é¡¹ç›®D:\dev\tomcat7\libä¸‹
+ï¼ˆé…ç½®tomcat7çš„ç«¯å£Tomcat admin portä¸º8006ï¼ŒHTTP/1.1ä¸º8081ï¼ŒSSLä¸º8444ï¼ŒAJP/1.3ä¸º8010ï¼‰
+2. æ·»åŠ æ˜ å°„åŸŸåï¼Œåœ¨C:\Windows\System32\drivers\etc\hostsæ–‡ä»¶ä¸­æ·»åŠ 
 127.0.0.1 cas-server
-3. ´´½¨webÏîÄ¿cas-demo£¬²¢ÔÚÏîÄ¿µÄweb.xmlÅäÖÃ¹ıÂËÆ÷
-ÄÚÈİ¼ûweb.xml
-4¡¢·ÃÎÊhttp://localhost:8081/cas-client/index.html
-×Ô¶¯Ìø×ªµ½https//cas-server:8443/cas/login
-ÊäÈëÓÃ»§ÃûºÍÃÜÂë casuser Mellon
+3. åˆ›å»ºwebé¡¹ç›®cas-demoï¼Œå¹¶åœ¨é¡¹ç›®çš„web.xmlé…ç½®è¿‡æ»¤å™¨
+å†…å®¹è§web.xml
+4ã€è®¿é—®http://localhost:8081/cas-client/index.html
+è‡ªåŠ¨è·³è½¬åˆ°https//cas-server:8443/cas/login
+è¾“å…¥ç”¨æˆ·åå’Œå¯†ç  casuser Mellon

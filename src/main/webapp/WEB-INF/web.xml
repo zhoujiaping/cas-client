@@ -2,7 +2,7 @@
 <web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
-	<display-name>cas-demo</display-name>
+	<display-name>cas-client</display-name>
 
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
@@ -72,7 +72,7 @@
 	</listener>
 	<filter>
 		<filter-name>CAS Single Sign Out Filter</filter-name>
-		<filter-class>org.jasig.cas.client.session.SingleSignOutFilter</filter-class>
+		<filter-class>cn.howso.filter.MySingleSignOutFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>CAS Single Sign Out Filter</filter-name>

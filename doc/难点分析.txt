@@ -1,21 +1,21 @@
-ÅäÖÃÊ±£¬ĞèÒªÀí½âÔ­Àí¡£ÏÖÔÚÁĞ¾ÙÒ»Ğ©±È½ÏÖØÒª£¬¶øÍøÉÏÃ»ÓĞÏêÏ¸½éÉÜµÄµã¡£
-1¡¢µÇÂ¼µØÖ·
+é…ç½®æ—¶ï¼Œéœ€è¦ç†è§£åŸç†ã€‚ç°åœ¨åˆ—ä¸¾ä¸€äº›æ¯”è¾ƒé‡è¦ï¼Œè€Œç½‘ä¸Šæ²¡æœ‰è¯¦ç»†ä»‹ç»çš„ç‚¹ã€‚
+1ã€ç™»å½•åœ°å€
 http://cas-server:8080/cas/login?service=http://app1-host:8082/app1/shiro-cas
-service²ÎÊı£¬×÷ÓÃ×÷Îªcas-serverÇø·ÖserviceµÄ±êÊ¶£¬Ò²×÷ÎªµÇÂ¼ºóµÄ»Øµ÷½Ó¿Ú£¬»¹×÷Îª×¢ÏúºóµÄ»Øµ÷½Ó¿Ú¡£
-×÷ÎªµÇÂ¼ºóµÄ»Øµ÷Ê±£¬ÒÔget·½·¨·¢ËÍÇëÇó¡£
-×÷Îª×¢ÏúºóµÄ»Øµ÷Ê±£¬ÒÔpost·½·¨·¢ËÍÇëÇó¡£
-2¡¢×¢ÏúÔ­Àí
-cas-serverÊÕµ½×¢ÏúÇëÇó£¬»á±éÀúËùÓĞµÄserivce£¬Öğ¸ö·¢ËÍ×¢ÏúÇëÇó£¨post http://app1-host:8082/app1/shiro-cas£©¡£
-cas¿Í»§¶Ë£¬¼´Ó¦ÓÃ¶Ë£¬ÓĞÒ»¸ömapÒÔST×÷Îªkey£¬session×÷Îªvalue¡£
-ÁíÍâÓĞÒ»¸ömapÒÔcookie×÷Îªkey£¬ÒÔST×÷Îªvalue¡££¨Á½¸ömap±£´æÔÚsessionMappingStorage¶ÔÏó£©
-ÈİÆ÷ÓÖÒÔcookie×÷Îªkey£¬session×÷Îªvalue±£´æ¡£
-SingleSignOutHttpSessionListener¾ÍÊÇ¼àÌısession£¬destroyÊ±£¬½«Á½¸ömap×öÏàÓ¦µÄÇå³ı´¦Àí¡£
-µ«ÊÇ×¢Òâ£ºweb.xmlÖĞÅäÖÃµÄSingleSignOutHttpSessionListenerÒÔ¼°SingleSignOutFilter£¬Ê¹ÓÃµÄ¶¼ÊÇÈİÆ÷×Ô´øµÄsession¹ÜÀíÆ÷¡£
-Èç¹ûapplication-shiroÖĞµÄsessionManagerÅäÖÃµÄ²»ÊÇÈİÆ÷×Ô´øµÄsession¹ÜÀíÆ÷£¬»áµ¼ÖÂÇ°ÃæµÄ¼àÌıÆ÷ºÍ¹ıÂËÆ÷´¦ÀíµÄsessionºÍshiroµÄsession²»ÊÇÒ»¸ösession¡£
-µ¥µã×¢ÏúµÄ¹ıÂËÆ÷Òª·ÅÔÚshiro¹ıÂËÆ÷Ö®Ç°¡£
-3¡¢¸÷×é¼ş×÷ÓÃ
-casFilterµÄ×÷ÓÃ£¬ÊÇÔÚÓÃ»§ÔÚcas-serverÈÏÖ¤³É¹¦ºó£¬½«ÓÃ»§µÇÂ¼µ½Ó¦ÓÃµÄ¡£¼´subject.login(token);
-SingleSignOutFilterµÄ×÷ÓÃ£¬ÊÇÓÃ»§ÔÚcas-server×¢Ïúºó£¬½«ÓÃ»§´ÓÓ¦ÓÃ×¢ÏúµÄ¡£¼´subject.logout();
-LogoutFilterµÄ×÷ÓÃ£¬ÊÇ½«ÓÃ»§´Óµ±Ç°Ó¦ÓÃ×¢Ïú£¬²¢·¢ËÍÇëÇó´Ócas-server×¢Ïú¡£
-AuthcFilter£¨FormAuthenticationFilter£©µÄ×÷ÓÃ£¬¾ÍÊÇÅĞ¶ÏÓÃ»§ÊÇ·ñµÇÂ¼£¬ÓĞµÇÂ¼¾Í·Å¹ı£¬Ã»µÇÂ¼¾ÍÖØ¶¨Ïòµ½µÇÂ¼Ò³Ãæ¡£
-CasRealmµÄ×÷ÓÃ£¬ÓÃÓÚ»ñÈ¡ÈÏÖ¤¼°ÊÚÈ¨ĞÅÏ¢¡£
+serviceå‚æ•°ï¼Œä½œç”¨ä½œä¸ºcas-serveråŒºåˆ†serviceçš„æ ‡è¯†ï¼Œä¹Ÿä½œä¸ºç™»å½•åçš„å›è°ƒæ¥å£ï¼Œè¿˜ä½œä¸ºæ³¨é”€åçš„å›è°ƒæ¥å£ã€‚
+ä½œä¸ºç™»å½•åçš„å›è°ƒæ—¶ï¼Œä»¥getæ–¹æ³•å‘é€è¯·æ±‚ã€‚
+ä½œä¸ºæ³¨é”€åçš„å›è°ƒæ—¶ï¼Œä»¥postæ–¹æ³•å‘é€è¯·æ±‚ã€‚
+2ã€æ³¨é”€åŸç†
+cas-serveræ”¶åˆ°æ³¨é”€è¯·æ±‚ï¼Œä¼šéå†æ‰€æœ‰çš„serivceï¼Œé€ä¸ªå‘é€æ³¨é”€è¯·æ±‚ï¼ˆpost http://app1-host:8082/app1/shiro-casï¼‰ã€‚
+caså®¢æˆ·ç«¯ï¼Œå³åº”ç”¨ç«¯ï¼Œæœ‰ä¸€ä¸ªmapä»¥STä½œä¸ºkeyï¼Œsessionä½œä¸ºvalueã€‚
+å¦å¤–æœ‰ä¸€ä¸ªmapä»¥cookieä½œä¸ºkeyï¼Œä»¥STä½œä¸ºvalueã€‚ï¼ˆä¸¤ä¸ªmapä¿å­˜åœ¨sessionMappingStorageå¯¹è±¡ï¼‰
+å®¹å™¨åˆä»¥cookieä½œä¸ºkeyï¼Œsessionä½œä¸ºvalueä¿å­˜ã€‚
+SingleSignOutHttpSessionListenerå°±æ˜¯ç›‘å¬sessionï¼Œdestroyæ—¶ï¼Œå°†ä¸¤ä¸ªmapåšç›¸åº”çš„æ¸…é™¤å¤„ç†ã€‚
+ä½†æ˜¯æ³¨æ„ï¼šweb.xmlä¸­é…ç½®çš„SingleSignOutHttpSessionListenerä»¥åŠSingleSignOutFilterï¼Œä½¿ç”¨çš„éƒ½æ˜¯å®¹å™¨è‡ªå¸¦çš„sessionç®¡ç†å™¨ã€‚
+å¦‚æœapplication-shiroä¸­çš„sessionManageré…ç½®çš„ä¸æ˜¯å®¹å™¨è‡ªå¸¦çš„sessionç®¡ç†å™¨ï¼Œä¼šå¯¼è‡´å‰é¢çš„ç›‘å¬å™¨å’Œè¿‡æ»¤å™¨å¤„ç†çš„sessionå’Œshiroçš„sessionä¸æ˜¯ä¸€ä¸ªsessionã€‚
+å•ç‚¹æ³¨é”€çš„è¿‡æ»¤å™¨è¦æ”¾åœ¨shiroè¿‡æ»¤å™¨ä¹‹å‰ã€‚
+3ã€å„ç»„ä»¶ä½œç”¨
+casFilterçš„ä½œç”¨ï¼Œæ˜¯åœ¨ç”¨æˆ·åœ¨cas-serverè®¤è¯æˆåŠŸåï¼Œå°†ç”¨æˆ·ç™»å½•åˆ°åº”ç”¨çš„ã€‚å³subject.login(token);
+SingleSignOutFilterçš„ä½œç”¨ï¼Œæ˜¯ç”¨æˆ·åœ¨cas-serveræ³¨é”€åï¼Œå°†ç”¨æˆ·ä»åº”ç”¨æ³¨é”€çš„ã€‚å³subject.logout();
+LogoutFilterçš„ä½œç”¨ï¼Œæ˜¯å°†ç”¨æˆ·ä»å½“å‰åº”ç”¨æ³¨é”€ï¼Œå¹¶å‘é€è¯·æ±‚ä»cas-serveræ³¨é”€ã€‚
+AuthcFilterï¼ˆFormAuthenticationFilterï¼‰çš„ä½œç”¨ï¼Œå°±æ˜¯åˆ¤æ–­ç”¨æˆ·æ˜¯å¦ç™»å½•ï¼Œæœ‰ç™»å½•å°±æ”¾è¿‡ï¼Œæ²¡ç™»å½•å°±é‡å®šå‘åˆ°ç™»å½•é¡µé¢ã€‚
+CasRealmçš„ä½œç”¨ï¼Œç”¨äºè·å–è®¤è¯åŠæˆæƒä¿¡æ¯ã€‚

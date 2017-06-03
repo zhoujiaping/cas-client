@@ -16,8 +16,8 @@
 		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
 		<property name="locations">
 			<list>
-				<value>classpath:sys-config.${env}.properties</value>
-				<value>classpath:shiro.${env}.properties</value>
+				<value>classpath:sys-config.properties</value>
+				<value>classpath:shiro.properties</value>
 			</list>
 		</property>
 	</bean>

@@ -1,0 +1,8 @@
+session共享
+1、下载redis
+windows版本https://github.com/ServiceStack/redis-windows/tree/master/downloads
+2、配置密码
+redis.conf
+搜索password，找到对应配置，去掉注释
+3、启动redis服务
+redis-server redis.conf
